@@ -14,6 +14,9 @@ gem 'sqlite3'
 gem 'devise'
 # Translations for the devise gem
 gem 'devise-i18n'
+#Generate Entity-Relationship Diagrams for Rails applications 
+gem 'rails-erd'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Rails i18n for locale data
