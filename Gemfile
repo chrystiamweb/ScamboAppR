@@ -16,7 +16,12 @@ gem 'devise'
 gem 'devise-i18n'
 #Generate Entity-Relationship Diagrams for Rails applications 
 gem 'rails-erd'
-
+#Rails gem of the Bootstrap based admin theme SB Admin 2
+gem 'bootstrap_sb_admin_base_v2'
+#Jquerry 
+gem 'jquery-rails'
+#bootstrap 4 
+gem 'bootstrap', '~> 4.0.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Rails i18n for locale data
