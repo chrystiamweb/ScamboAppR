@@ -1,24 +1,4 @@
-# README
+# ScamboAppR
+Segunda aplicação do curso de Rails do professor Jackson Pires 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Link do curso: https://www.udemy.com/rubyonrails/
