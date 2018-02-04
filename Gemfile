@@ -26,6 +26,8 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'puma', '~> 3.7'
 # Rails i18n for locale data
 gem 'rails-i18n'
+# A simple, versatile notification library
+gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
