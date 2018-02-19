@@ -9,7 +9,7 @@ class Backoffice::CategoriesController < BackofficeController
     @category = Category.new    
   end
   
-
+  
   def create    
     @category = Category.new(params_category)
     if @category.save

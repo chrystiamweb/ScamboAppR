@@ -21,3 +21,12 @@ categories.each do |c|
 end
 
 puts "Categorias cadastradas com sucesso ... "
+
+
+############################## CADASTRO DE ADMINISTRADOR PADRÃO ######
+
+puts "Cadstrando Administrador padrão do sistema"
+    Admin.create!(name:"Admin Padrão", email: "admin@admin.com", password:"123456", password_confirmation:"123456", role:0)
+puts "Administrador padrão do sistema cadastrado com sucesso..."
+puts "Login: admin@admin.com"
+puts "Senha: 123456"
