@@ -1,5 +1,5 @@
 class Backoffice::CategoriesController < BackofficeController
-  before_action :find_category_by_id, only: [:edit, :update]
+  before_action :find_category_by_id, only: [:edit, :update, :destroy]
 
   def index
     @categories = Category.all
@@ -11,8 +11,8 @@ class Backoffice::CategoriesController < BackofficeController
   
   
   def create    
-    @category = Category.new(params_category)
-    if @category.save
+    @category = CategoryService.create(params_category)
+    unless @category.errors.any?
       redirect_to backoffice_categories_path, notice: "categoria #{@category.description} cadastrada com sucesso!"
     else
       render :new, notice: 'ocorreu um erro'    
@@ -28,6 +28,14 @@ class Backoffice::CategoriesController < BackofficeController
   end  
 
   def edit           
+  end
+
+  def destroy    
+    if @category.destroy
+      redirect_to backoffice_categories_path, notice: "#{@category.description} deletado com sucesso!"
+    else      
+      redirect_to backoffice_categories_path, notice: "Ocorreu um erro ao deletar #{@category.description}"
+    end
   end
 
 

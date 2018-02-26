@@ -12,10 +12,10 @@
   <title>Scamboapp</title>
   <%= csrf_meta_tags %>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_link_tag    'backoffice', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'backoffice', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'application', media: 'all'%>
+  <%= javascript_include_tag 'application'%>
+  <%= stylesheet_link_tag    'backoffice', media: 'all'%>
+  <%= javascript_include_tag 'backoffice'%>
 
   
 </head>
@@ -39,6 +39,11 @@
 <% if notice %>
   <script>
     $.notify("<%= notice %>","success");
+  </script> 
+<%end%>
+<% if alert %>
+  <script>
+    $.notify("<%= alert %>","Error");
   </script> 
 <%end%>
 
