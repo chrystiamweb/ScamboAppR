@@ -27,7 +27,17 @@
         <div class="form-group">
           <label>Email Admnistrador</label>
           <%= f.text_field :email, class: "form-control", placeholder:"Digite o email do administrador" %>
-        </div>																			
+        </div>		
+
+        <div class="form-group">
+        <%= f.label :role %>
+        <%= f.collection_radio_buttons(:role, options_for_roles,:description,:id) do |b| %>          
+            <div class="radio">
+                <%= b.label { b.radio_button + b.text} %>
+            </div>
+        <% end %>
+        </div>
+        
         <div class="form-group">
           <label>Senha Admnistrador</label>
           <%= f.password_field :password, class: "form-control", placeholder:"Digite a senha" %>
