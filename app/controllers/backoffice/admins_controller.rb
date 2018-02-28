@@ -33,6 +33,7 @@ after_action :verify_policy_scoped, only: :index
     end
 
     if  @admin.update(params_admin)
+      AdminMailer.update_email(current_admin, @admin).deliver_now
       redirect_to backoffice_admins_path, notice: "Administrador #{@admin.email} editado com sucesso!"
     else
       render :edit, notice: 'ocorreu um erro'  
@@ -40,6 +41,7 @@ after_action :verify_policy_scoped, only: :index
   end
 
   def destroy
+    authorize @admin
     
     if @admin.destroy
       redirect_to backoffice_admins_path, notice: "Administrador #{@admin.email} deletado com sucesso!"

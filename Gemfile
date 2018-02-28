@@ -30,6 +30,8 @@ gem 'puma', '~> 3.7'
 gem 'rails-i18n'
 # Minimal authorization through OO design and pure Ruby classes
 gem 'pundit'
+# O Lero-lero Generator é uma ferramenta capaz de gerar frases que 'falam' muita coisa mas que não tem conteúdo algum.
+gem 'lerolero_generator'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
