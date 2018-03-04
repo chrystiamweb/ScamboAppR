@@ -1,4 +1,4 @@
-namespace :utils do
+namespace :dev do
   desc "Setup Development"
   task setup: :environment do
     images_path = Rails.root.join('public','system')
@@ -14,9 +14,9 @@ namespace :utils do
     puts "CRIANDO BD... #{%x(rails db:create)}"
     puts %x(rails db:migrate)
     puts %x(rails db:seed)
-    puts %x(rails utils:generate_admins)
-    puts %x(rails utils:gen_members)
-    puts %x(rails utils:generate_ads)
+    puts %x(rails dev:generate_admins)
+    puts %x(rails dev:gen_members)
+    puts %x(rails dev:generate_ads)
 
     puts "Setup completado com sucesso!"
   end
@@ -33,8 +33,8 @@ namespace :utils do
   #################################################################
   desc "Cria Membros"
   task gen_members: :environment do
-    puts "Cadastrando mebros aleatórios para teste"
-      10.times do
+    puts "Cadastrando membros aleatórios para teste"
+      50.times do
         Member.create!(email: Faker::Internet.email, password:"123456", password_confirmation:"123456")
       end      
     puts "Membros aleatórios cadastrado com sucesso..."
@@ -52,6 +52,7 @@ namespace :utils do
         description: Faker::Lorem.sentence([2,3].sample),
         member: Member.all.sample,
         category: Category.all.sample,
+        finish_date: Date.today + Random.rand(90),
         price: "#{Random.rand(500)},#{Random.rand(500)}",
         picture: File.new(Rails.root.join('public', 'templates', 'images-for-ads', "#{Random.rand(9)}.jpg"), 'r')
       )
