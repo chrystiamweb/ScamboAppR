@@ -1,4 +1,27 @@
 namespace :utils do
+  desc "Setup Development"
+  task setup: :environment do
+    images_path = Rails.root.join('public','system')
+
+    puts "Executando o setup para desenvolvimento..."
+
+    puts "APAGANDO BD... #{%x(rails db:drop)}"
+
+    if Rails.env.development?
+      puts "Apagando imagens de public/system #{%x(rm -rf #{images_path})}"
+    end
+
+    puts "CRIANDO BD... #{%x(rails db:create)}"
+    puts %x(rails db:migrate)
+    puts %x(rails db:seed)
+    puts %x(rails utils:generate_admins)
+    puts %x(rails utils:gen_members)
+    puts %x(rails utils:generate_ads)
+
+    puts "Setup completado com sucesso!"
+  end
+
+  #################################################################
   desc "Cria Administradores aleatórios para teste"
   task generate_admins: :environment do
     puts "Cadastrando Administradores aleatórios para teste"
@@ -29,6 +52,8 @@ namespace :utils do
         description: Faker::Lorem.sentence([2,3].sample),
         member: Member.all.sample,
         category: Category.all.sample,
+        price: "#{Random.rand(500)},#{Random.rand(500)}",
+        picture: File.new(Rails.root.join('public', 'templates', 'images-for-ads', "#{Random.rand(9)}.jpg"), 'r')
       )
     end
 

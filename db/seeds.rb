@@ -30,3 +30,11 @@ puts "Cadstrando Administrador padrão do sistema"
 puts "Administrador padrão do sistema cadastrado com sucesso..."
 puts "Login: admin@admin.com"
 puts "Senha: 123456"
+
+############################## CADASTRO DE MEMBRO PADRÃO ######
+
+puts "Cadstrando membro padrão do sistema"
+    Member.create!(name:"memb Padrão", email: "memb@memb.com", password:"123456", password_confirmation:"123456")
+puts "Membro padrão do sistema cadastrado com sucesso..."
+puts "Login: memb@memb.com"
+puts "Senha: 123456"
